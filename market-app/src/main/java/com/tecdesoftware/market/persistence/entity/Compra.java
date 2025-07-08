@@ -32,7 +32,7 @@ public class Compra {
     private Cliente cliente;
 
     //>Esto me va a decir cuantos productos se compraron
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "compra")
     private List<CompraProducto> productos;
 
     public Integer getIdCompra() {

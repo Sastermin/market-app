@@ -16,9 +16,9 @@ public class Producto {
     private String nombre;
 
     @Column (name= "id_categoria")
-    private Integer IdCategoria;
+    private Integer idCategoria;
 
-    @Column (name = "coidgo_barras")
+    @Column (name = "codigo_barras")
     private String codigoBarras;
 
     @Column (name = "precio_venta")
@@ -50,11 +50,11 @@ public class Producto {
     }
 
     public Integer getIdCategoria() {
-        return IdCategoria;
+        return idCategoria;
     }
 
     public void setIdCategoria(Integer idCategoria) {
-        IdCategoria = idCategoria;
+        this.idCategoria = idCategoria;
     }
 
     public String getCodigoBarras() {

@@ -1,6 +1,6 @@
 package com.tecdesoftware.market.domain;
 
-import jdk.jfr.Category;
+import com.tecdesoftware.market.domain.Category;
 
 public class Product {
     private int productId;
@@ -10,6 +10,7 @@ public class Product {
     private int stock;
     private boolean active;
     private Category category;
+
 
     public int getProductId() {
         return productId;
