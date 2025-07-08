@@ -9,7 +9,6 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-//Se usa "uses" porque se tiene el atributo category que a su vez tiene su propio Mapper
 @Mapper(componentModel = "spring", uses = CategoryMapper.class)
 public interface ProductMapper {
     @Mappings({
@@ -22,10 +21,18 @@ public interface ProductMapper {
             @Mapping(source = "categoria", target = "category")
     })
     Product toProduct(Producto producto);
-
     List<Product> toProducts(List<Producto> productos);
-
-    @InheritInverseConfiguration //Mapear de manera inversa la primera parte de la interfaz
-    @Mapping(target = "codigoBarras", ignore = true)
+    @Mappings({
+            // Aquí ignoramos el ID para evitar errores al insertar nuevos productos
+            @Mapping(target = "idProducto", ignore = true),
+            @Mapping(source = "name", target = "nombre"),
+            @Mapping(source = "categoryId", target = "idCategoria"),
+            @Mapping(source = "price", target = "precioVenta"),
+            @Mapping(source = "stock", target = "cantidadStock"),
+            @Mapping(source = "active", target = "estado"),
+            @Mapping(target = "codigoBarras", ignore = true),
+            @Mapping(target = "categoria", ignore = true)
+    })
     Producto toProducto(Product product);
-    }
+}
+
