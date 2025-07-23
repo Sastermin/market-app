@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 //Le dice a Spring que va a ser el controlador de una API REST
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/products")
 @Tag(name = "Product Controller", description = "Manage products in the store")
@@ -99,7 +100,6 @@ public class ProductController {
     @ApiResponse(responseCode = "500", description = "Internal server error")
     public ResponseEntity<Product> save(@RequestBody Product product) {
         return new ResponseEntity<>(productService.save(product), HttpStatus.CREATED);
-
     }
 
     @DeleteMapping("/{id}")
