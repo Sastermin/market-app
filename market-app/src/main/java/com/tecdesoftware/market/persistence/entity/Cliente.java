@@ -22,7 +22,9 @@ public class Cliente {
     private String direccion;
 
     @Column (name = "correo_electronico")
-    private String CorreoElectronico;
+    private String correoElectronico;
+
+    private String contrasena;
 
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
@@ -68,10 +70,18 @@ public class Cliente {
     }
 
     public String getCorreoElectronico() {
-        return CorreoElectronico;
+        return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
-        CorreoElectronico = correoElectronico;
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
